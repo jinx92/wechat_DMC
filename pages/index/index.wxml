@@ -1,0 +1,19 @@
+<!-- 头部TabBar -->
+<view class="head">
+  <block wx:for="{{navBar}}" wx:for-item="nav" wx:key="id">
+    <view class="{{navId==nav.id?'borderBottom':''}}" data-navId="{{nav.id}}" bindtap="bindNavBar">{{nav.name}}</view>
+  </block>
+</view>
+<!-- 内容显示区域 -->
+<view class="body">
+  <block wx:for="{{navBar}}" wx:for-item="info" wx:key="id" wx:if="{{navId==info.id}}"> 
+    <view class="list" wx:for="{{info.list}}" wx:key="*this">
+      <image src="{{item.BigPic}}">
+        <text wx:if="{{info.id==0}}">{{item.LastPartShowName}}</text>
+      </image>
+      <view>{{item.Title}}</view>
+    </view>
+  </block>
+</view>
+
+
